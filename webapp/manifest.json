@@ -105,6 +105,12 @@
 				"pattern": "Colony",
 				"name": "Colonies",
 				"target": "Colonies"
+			}, {
+				"name": "ColonyDetail",
+				"pattern": "Colony/{ID}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["ColonyDetail"]
 			}],
 			"targets": {
 				"home": {
@@ -112,6 +118,20 @@
 				},
 				"Colonies": {
 					"viewName": "Colonies"
+				},
+				"ColonyDetail": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "ColonyDetail",
+					"title": "Detail",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "NotFound"
 				}
 			}
 		}

@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller,BaseController ) {
 	"use strict";
 
-	return BaseController.extend("MyAirPort.controller.NotFound", {
+	return BaseController.extend("BeeApp.controller.NotFound", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.

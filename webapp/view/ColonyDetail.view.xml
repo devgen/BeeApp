@@ -1,0 +1,41 @@
+<mvc:View xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:f="sap.ui.layout.form"  
+xmlns:l="sap.ui.layout"
+xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.ColonyDetail">
+	<App>
+		<pages>
+			<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+				<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="flightDetails" title="Flight Details">
+					<f:content>
+						<RatingIndicator id="RI_default" maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" />
+						<Label text="Colony ID"/>
+						<Input type="Text" width="100%" id="ID" value="{ID}" editable="false"/>
+						<Label text="Colony name"/>
+						<Input type="Text" width="100%" id="NAME" value="{NAME}"/>
+						<Label text="Colony long"/>
+						<Input type="Text" width="100%" id="LONG" value="{LONG}"/>
+						<Label text="Colony lat"/>
+						<Input type="Text" width="100%" id="LAT" value="{LAT}"/>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+					
+
+					
+				</content>
+									<footer>
+  <Bar>
+    <contentRight>
+    	<Button text="Accept" press="onPressAccept" type="Accept"/>
+        <Button text="Cancel" press="onPressCancel"/>
+    </contentRight>
+  </Bar>
+</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
