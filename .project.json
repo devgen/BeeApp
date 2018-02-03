@@ -6,7 +6,8 @@
   "build": {
     "targetFolder": "dist",
     "sourceFolder": "webapp",
-    "buildRequired": true
+    "buildRequired": true,
+    "lastBuildDateTime": "Sat, 03 Feb 2018 19:56:55 GMT"
   },
   "generation": [
     {
@@ -22,12 +23,12 @@
     {
       "templateId": "ui5template.basicSAPUI5ApplicationComponent",
       "templateVersion": "1.4.0",
-      "dateTimeStamp": "Sat, 03 Feb 2018 17:25:14 GMT"
+      "dateTimeStamp": "Sat, 03 Feb 2018 18:04:56 GMT"
     },
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Sat, 03 Feb 2018 17:55:19 GMT"
+      "dateTimeStamp": "Sat, 03 Feb 2018 20:11:15 GMT"
     }
   ],
   "translation": {
@@ -50,10 +51,15 @@
     "blockPushLevel": "Error"
   },
   "mockpreview": {
-    "mockUri": "/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata",
+    "mockUri": "/gbi-student-011/HiveMeasurement/services/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata",
     "metadataFilePath": "",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
+  },
+  "hcpdeploy": {
+    "account": "p1673495955trial",
+    "name": "beeapp",
+    "lastVersionWeTriedToDeploy": "1.0.0"
   }
 }

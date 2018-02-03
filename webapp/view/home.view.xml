@@ -5,7 +5,14 @@
 				<content>
 			
 					<TileContainer id="dashboardtiles" class="dashboard">
-							<StandardTile icon="sap-icon://official-service" type="Monitor" number="{number}" numberUnit="{numberUnit}" class="customtiles" press="tilepress" title="{title}" info="{info}" infoState="{infoState}"/>
+							<StandardTile icon="sap-icon://official-service"
+							type="Monitor" number="{number}"
+							numberUnit="{numberUnit}" 
+							class="customtiles" 
+							press="handelPressColonies" 
+							title="{title}" 
+							info="{info}"
+							infoState="{infoState}"/>
 						</TileContainer>
 			
 				</content>

@@ -15,11 +15,12 @@
 		},
 		"dataSources": {
 			"ReceiveMeasurements.xsodata": {
-				"uri": "/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata/",
+				"uri": "/gbi-student-011/HiveMeasurement/services/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
+					"localUri": "localService/ReceiveMeasurements.xsodata/metadata.xml",
+					"annotations": []
 				}
 			}
 		}
@@ -39,10 +40,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -71,14 +69,22 @@
 				"settings": {
 					"bundleName": "BeeApp.i18n.i18n"
 				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ReceiveMeasurements.xsodata",
+				"preload": true
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -91,18 +97,27 @@
 					"target": "notFound"
 				}
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "appHome",
-					"target": "home"
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			}, {
+				"pattern": "Colony",
+				"name": "Colonies",
+				"target": "Colonies"
+			}],
 			"targets": {
 				"home": {
 					"viewName": "home"
+				},
+				"Colonies": {
+					"viewName": "Colonies"
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }
