@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.home">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+			
+					<TileContainer id="dashboardtiles" class="dashboard">
+							<StandardTile icon="sap-icon://official-service" type="Monitor" number="{number}" numberUnit="{numberUnit}" class="customtiles" press="tilepress" title="{title}" info="{info}" infoState="{infoState}"/>
+						</TileContainer>
+			
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

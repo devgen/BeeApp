@@ -1,0 +1,190 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements">
+            <EntityType Name="HumidityInType">
+                <Key>
+                    <PropertyRef Name="TIMESTAMP"/>
+                    <PropertyRef Name="COLONYID"/>
+                </Key>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HUMIDITY" Type="Edm.Decimal" Precision="5" Scale="2"/>
+            </EntityType>
+            <EntityType Name="HumidityOutType">
+                <Key>
+                    <PropertyRef Name="TIMESTAMP"/>
+                    <PropertyRef Name="COLONYID"/>
+                </Key>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HUMIDITY" Type="Edm.Decimal" Precision="5" Scale="2"/>
+            </EntityType>
+            <EntityType Name="WeightType">
+                <Key>
+                    <PropertyRef Name="TIMESTAMP"/>
+                    <PropertyRef Name="COLONYID"/>
+                </Key>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="WEIGHT" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="TemperatureInType">
+                <Key>
+                    <PropertyRef Name="TIMESTAMP"/>
+                    <PropertyRef Name="COLONYID"/>
+                </Key>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="TEMP" Type="Edm.Decimal" Precision="5" Scale="2"/>
+            </EntityType>
+            <EntityType Name="TemperatureOutType">
+                <Key>
+                    <PropertyRef Name="TIMESTAMP"/>
+                    <PropertyRef Name="COLONYID"/>
+                </Key>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="TEMP" Type="Edm.Decimal" Precision="5" Scale="2"/>
+            </EntityType>
+            <EntityType Name="ColonyType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="LONG" Type="Edm.Double"/>
+                <Property Name="LAT" Type="Edm.Double"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="255"/>
+                <Property Name="BEEKEEPERID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="BeekeeperType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="255"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PASSWORD" Type="Edm.Binary"/>
+            </EntityType>
+            <EntityType Name="ScoreType">
+                <Key>
+                    <PropertyRef Name="TIMESTAMP"/>
+                    <PropertyRef Name="COLONYID"/>
+                </Key>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="SCORE" Type="Edm.Int32"/>
+            </EntityType>
+            <Association Name="Beekeeper_ColonyType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.BeekeeperType" Role="BeekeeperPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="BeekeeperPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ColonyDependent">
+                        <PropertyRef Name="BEEKEEPERID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Colony_HumidityInType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.HumidityInType" Role="HumidityInDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ColonyPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="HumidityInDependent">
+                        <PropertyRef Name="COLONYID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Colony_HumidityOutType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.HumidityOutType" Role="HumidityOutDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ColonyPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="HumidityOutDependent">
+                        <PropertyRef Name="COLONYID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Colony_TemperatureInType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.TemperatureInType" Role="TemperatureInDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ColonyPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="TemperatureInDependent">
+                        <PropertyRef Name="COLONYID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Colony_TemperatureOutType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.TemperatureOutType" Role="TemperatureOutDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ColonyPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="TemperatureOutDependent">
+                        <PropertyRef Name="COLONYID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Colony_WeightType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.WeightType" Role="WeightDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ColonyPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="WeightDependent">
+                        <PropertyRef Name="COLONYID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ReceiveMeasurements" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="HumidityIn" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.HumidityInType"/>
+                <EntitySet Name="HumidityOut" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.HumidityOutType"/>
+                <EntitySet Name="Weight" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.WeightType"/>
+                <EntitySet Name="TemperatureIn" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.TemperatureInType"/>
+                <EntitySet Name="TemperatureOut" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.TemperatureOutType"/>
+                <EntitySet Name="Colony" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType"/>
+                <EntitySet Name="Beekeeper" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.BeekeeperType"/>
+                <EntitySet Name="Score" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ScoreType"/>
+                <AssociationSet Name="Beekeeper_Colony" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Beekeeper_ColonyType">
+                    <End Role="BeekeeperPrincipal" EntitySet="Beekeeper"/>
+                    <End Role="ColonyDependent" EntitySet="Colony"/>
+                </AssociationSet>
+                <AssociationSet Name="Colony_HumidityIn" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_HumidityInType">
+                    <End Role="ColonyPrincipal" EntitySet="Colony"/>
+                    <End Role="HumidityInDependent" EntitySet="HumidityIn"/>
+                </AssociationSet>
+                <AssociationSet Name="Colony_HumidityOut" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_HumidityOutType">
+                    <End Role="ColonyPrincipal" EntitySet="Colony"/>
+                    <End Role="HumidityOutDependent" EntitySet="HumidityOut"/>
+                </AssociationSet>
+                <AssociationSet Name="Colony_TemperatureIn" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_TemperatureInType">
+                    <End Role="ColonyPrincipal" EntitySet="Colony"/>
+                    <End Role="TemperatureInDependent" EntitySet="TemperatureIn"/>
+                </AssociationSet>
+                <AssociationSet Name="Colony_TemperatureOut" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_TemperatureOutType">
+                    <End Role="ColonyPrincipal" EntitySet="Colony"/>
+                    <End Role="TemperatureOutDependent" EntitySet="TemperatureOut"/>
+                </AssociationSet>
+                <AssociationSet Name="Colony_Weight" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_WeightType">
+                    <End Role="ColonyPrincipal" EntitySet="Colony"/>
+                    <End Role="WeightDependent" EntitySet="Weight"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
