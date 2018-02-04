@@ -89,21 +89,21 @@
                 	    the frame of the chart. The property vizProperties is a json
                 	    object which holds the configuration for the actual chart -->
 										<viz:VizFrame id="weightChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
-											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Temperature' } }">
 											<viz:dataset>
 												<viz.data:FlattenedDataset id="flattenedDataWeight" data="{path: '/Colony(1)/ItsTemperatureIn'}">
 													<viz.data:dimensions>
 														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
 													</viz.data:dimensions>
 													<viz.data:measures>
-														<viz.data:MeasureDefinition name="Weight" value="{TEMP}"/>
+														<viz.data:MeasureDefinition name="Temperature" value="{TEMP}"/>
 													</viz.data:measures>
 												</viz.data:FlattenedDataset>
 											</viz:dataset>
 											<!-- the feed items are required to define the mapping between the odata
                 		properties (values) and the axis (uid) -->
 											<viz:feeds>
-												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Weight"/>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Temperature"/>
 												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
 											</viz:feeds>
 										</viz:VizFrame>
@@ -130,21 +130,21 @@
                 	    the frame of the chart. The property vizProperties is a json
                 	    object which holds the configuration for the actual chart -->
 										<viz:VizFrame id="tempOutChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
-											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Temperature' } }">
 											<viz:dataset>
 												<viz.data:FlattenedDataset id="ItsTemperatureOut" data="{path: '/Colony(1)/ItsTemperatureOut'}">
 													<viz.data:dimensions>
 														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
 													</viz.data:dimensions>
 													<viz.data:measures>
-														<viz.data:MeasureDefinition name="Weight" value="{TEMP}"/>
+														<viz.data:MeasureDefinition name="Temperature" value="{TEMP}"/>
 													</viz.data:measures>
 												</viz.data:FlattenedDataset>
 											</viz:dataset>
 											<!-- the feed items are required to define the mapping between the odata
                 		properties (values) and the axis (uid) -->
 											<viz:feeds>
-												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Weight"/>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Temperature"/>
 												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
 											</viz:feeds>
 										</viz:VizFrame>
