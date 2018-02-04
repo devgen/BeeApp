@@ -1,14 +1,16 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
-	<Dialog id="colonyCreation" title="Create new colony">
+	<Dialog id="colonyCreation" title="{i18n>ColonyCreationDialogTitle}">
 		<content>
-			<f:SimpleForm id="colonyDetails" title="Colony details">
+			<f:SimpleForm id="colonyDetails" title="{i18n>ColonyInfoText}">
 				<f:content>
-					<Label text="{i18n>Carrid}"/>
-					<Input type="Text" width="100%" id="Carrid"/>
-					<Label text="{i18n>Connid}"/>
-					<Input type="Text" width="100%" id="Connid"/>
-					<Label text="{i18n>Carrid}"/>
-					<Input type="Text" width="100%" id="To"/>
+					<Label text="{i18n>ColonyID}"/>
+					<Input type="Text" width="100%" id="ID"/>
+					<Label text="{i18n>ColonyName}"/>
+					<Input type="Text" width="100%" id="NAME"/>
+					<Label text="{i18n>ColonyLonTitle}"/>
+					<Input type="Text" width="100%" id="LON"/>
+					<Label text="{i18n>ColonyLatTitle}"/>
+					<Input type="Text" width="100%" id="LAT"/>
 				</f:content>
 			</f:SimpleForm>
 		</content>

@@ -32,7 +32,12 @@ sap.ui.define([
 			this.colonyCreationDialog = new ColonyCreationDialog(this.getRootControl());
 		},
 		 openColonyCreationDeialog : function () {
+		 	//this.colonyCreationDialog.setModel(this.getView().getModel());
+		 	
 			this.colonyCreationDialog.open();
+		},
+		getColonyCreationDialog :function(){
+			return this.colonyCreationDialog;
 		}
 	});
 });
