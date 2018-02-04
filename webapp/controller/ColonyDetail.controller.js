@@ -55,7 +55,13 @@ sap.ui.define([
 			oModel.submitChanges({
 				
 				success: function(oParam){
-					
+				sap.m.MessageBox.show(oParam.text + " Colony updated", {
+				icon: MessageBox.Icon.INFORMATION,
+				title: "Colony update",
+				actions: [
+					MessageBox.Action.OK
+				]
+			});
 				}, 
 			
 				error: function(oParam){

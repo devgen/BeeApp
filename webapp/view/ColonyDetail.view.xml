@@ -37,7 +37,17 @@
 				    <core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="red"/>
 				</headerContent>
 				
-				
+									<footer>
+  <Bar>
+    <contentRight>
+  
+    <Button text="Accept" width="100px" id="__button1" type="Accept" press="onPressAccept"/>
+  
+    <Button text="Cancel" width="100px" id="__button0" type="Reject" press="onPressCancel"/>
+  
+    </contentRight>
+  </Bar>
+</footer>
 				
 				</Page></pages>
 				
