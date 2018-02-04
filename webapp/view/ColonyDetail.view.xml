@@ -4,7 +4,7 @@
 	controllerName="BeeApp.controller.ColonyDetail">
 	<App>
 		<pages>
-			<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
+			<Page title="{i18n>appTitle}" showNavButton="true" navButtonPress="onNavBack">
 				<content>
 					<IconTabBar id="centralTabBar" expanded="{device>isNoPhone}" class="sapUiResponsiveContentPadding">
 						<items>
@@ -24,33 +24,27 @@
 										</f:content>
 									</f:SimpleForm>
 								</VBox>
-								<VBox fitContainer="false"></VBox>
+								<VBox fitContainer="false"/>
 							</IconTabFilter>
-							
-							
-							
-						<IconTabFilter text="{i18n>MenuWeight}">
+							<IconTabFilter text="{i18n>MenuWeight}">
 								<Text text="{i18n>MenuWeight}"/>
 								<Panel expandable="true" expanded="true" width="100%">
 									<headerToolbar>
 										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
 										<Toolbar height="3rem">
-											<Title text="Text"/>
+											<Title text="{i18n>VisualizationTitle}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
-									<html:p/>
+									<html:p></html:p>
 									<content>
 										<Label text="Select a date range" labelFor="hmdout" class="sapUiSmallMargin"/>
 										<DateRangeSelection id="weight" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
-										<html:p/>
+										<html:p></html:p>
 										<!-- the vizFrame is a control to handle a variety of different
                 	    charts. The properties of the VizFrame itself only affect the 
                 	    the frame of the chart. The property vizProperties is a json
                 	    object which holds the configuration for the actual chart -->
-
-
-
 										<viz:VizFrame id="WEIGHTChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
 											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
 											<viz:dataset>
@@ -70,17 +64,9 @@
 												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
 											</viz:feeds>
 										</viz:VizFrame>
-
-
-
-
 									</content>
 								</Panel>
-							</IconTabFilter>	
-							
-							
-							
-							
+							</IconTabFilter>
 							<IconTabFilter text="{i18n>TempInTitle}">
 								<Text text="{i18n>TitleTempIn}"/>
 								<Panel expandable="true" expanded="true" width="100%">
@@ -89,15 +75,15 @@
     			toolbar, but you could add images or buttons
     			as well -->
 										<Toolbar height="3rem">
-											<Title text="Text"/>
+											<Title text="{i18n>MenuWeight}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
-									<html:p/>
+									<html:p></html:p>
 									<content>
 										<Label text="Select a date range" labelFor="drs" class="sapUiSmallMargin"/>
 										<DateRangeSelection id="drs" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
-										<html:p/>
+										<html:p></html:p>
 										<!-- the vizFrame is a control to handle a variety of different
                 	    charts. The properties of the VizFrame itself only affect the 
                 	    the frame of the chart. The property vizProperties is a json
@@ -124,32 +110,25 @@
 									</content>
 								</Panel>
 							</IconTabFilter>
-	
-	
-	
-							
-						<IconTabFilter text="{i18n>TempOutTitle}">
+							<IconTabFilter text="{i18n>TempOutTitle}">
 								<Text text="{i18n>TempOutTitle}"/>
 								<Panel expandable="true" expanded="true" width="100%">
 									<headerToolbar>
 										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
 										<Toolbar height="3rem">
-											<Title text="Text"/>
+											<Title text="{i18n>MenuWeight}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
-									<html:p/>
+									<html:p></html:p>
 									<content>
 										<Label text="Select a date range" labelFor="tmpout" class="sapUiSmallMargin"/>
 										<DateRangeSelection id="tmpout" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
-										<html:p/>
+										<html:p></html:p>
 										<!-- the vizFrame is a control to handle a variety of different
                 	    charts. The properties of the VizFrame itself only affect the 
                 	    the frame of the chart. The property vizProperties is a json
                 	    object which holds the configuration for the actual chart -->
-
-
-
 										<viz:VizFrame id="tempOutChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
 											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
 											<viz:dataset>
@@ -169,41 +148,28 @@
 												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
 											</viz:feeds>
 										</viz:VizFrame>
-
-
-
-
 									</content>
 								</Panel>
-							</IconTabFilter>	
-							
-							
-							
-							
-							
-							
-									<IconTabFilter text="{i18n>HumidyTitleout}">
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>HumidyTitleout}">
 								<Text text="{i18n>HumidyTitleout}"/>
 								<Panel expandable="true" expanded="true" width="100%">
 									<headerToolbar>
 										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
 										<Toolbar height="3rem">
-											<Title text="Text"/>
+											<Title text="{i18n>MenuWeight}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
-									<html:p/>
+									<html:p></html:p>
 									<content>
 										<Label text="Select a date range" labelFor="hmdout" class="sapUiSmallMargin"/>
 										<DateRangeSelection id="hmdout" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
-										<html:p/>
+										<html:p></html:p>
 										<!-- the vizFrame is a control to handle a variety of different
                 	    charts. The properties of the VizFrame itself only affect the 
                 	    the frame of the chart. The property vizProperties is a json
                 	    object which holds the configuration for the actual chart -->
-
-
-
 										<viz:VizFrame id="hdtOutChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
 											vizProperties="{ title: { alignment :'left', visible : true, text : 'Humidity' } }">
 											<viz:dataset>
@@ -223,22 +189,55 @@
 												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
 											</viz:feeds>
 										</viz:VizFrame>
-
-
-
-
 									</content>
 								</Panel>
-							</IconTabFilter>					
-	
-							
-							
-							
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>HumidityIn}">
+								<Text text="{i18n>HumidityIn}"/>
+								<Panel expandable="true" expanded="true" width="100%">
+									<headerToolbar>
+										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
+										<Toolbar height="3rem">
+											<Title text="{i18n>MenuWeight}"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</headerToolbar>
+									<html:p></html:p>
+									<content>
+										<Label text="Select a date range" labelFor="hmdin" class="sapUiSmallMargin"/>
+										<DateRangeSelection id="hmdin" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
+										<html:p></html:p>
+										<!-- the vizFrame is a control to handle a variety of different
+                	    charts. The properties of the VizFrame itself only affect the 
+                	    the frame of the chart. The property vizProperties is a json
+                	    object which holds the configuration for the actual chart -->
+										<viz:VizFrame id="hdtInChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Humidity' } }">
+											<viz:dataset>
+												<viz.data:FlattenedDataset id="ItsHumidityIn" data="{path: '/Colony(1)/ItsHumidityIn'}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Humidity" value="{HUMIDITY}"/>
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<!-- the feed items are required to define the mapping between the odata
+                		properties (values) and the axis (uid) -->
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Humidity"/>
+												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
+											</viz:feeds>
+										</viz:VizFrame>
+									</content>
+								</Panel>
+							</IconTabFilter>
 						</items>
 					</IconTabBar>
 				</content>
 				<headerContent>
-					<core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="red"/>
+					<core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="orange"/>
 				</headerContent>
 				<footer>
 					<Bar>

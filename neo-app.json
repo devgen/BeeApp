@@ -26,6 +26,14 @@
         "name": "HiveMeasurement"
       },
       "description": "Hana leonardo"
+    },
+    {
+      "path": "/HiveMeasurement",
+      "target": {
+        "type": "destination",
+        "name": "HiveMeasurement"
+      },
+      "description": "Hana leonardo"
     }
   ],
   "sendWelcomeFileRedirect": true

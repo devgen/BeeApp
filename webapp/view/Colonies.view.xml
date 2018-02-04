@@ -57,6 +57,9 @@
 						</items>
 					</IconTabBar>
 				</content>
+				<headerContent>
+					<core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="orange"/>
+				</headerContent>
 				<footer>
 					<Bar>
 						<contentRight></contentRight>

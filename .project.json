@@ -28,7 +28,7 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Sat, 03 Feb 2018 20:11:15 GMT"
+      "dateTimeStamp": "Sun, 04 Feb 2018 14:24:12 GMT"
     }
   ],
   "translation": {
@@ -51,7 +51,7 @@
     "blockPushLevel": "Error"
   },
   "mockpreview": {
-    "mockUri": "/gbi-student-011/HiveMeasurement/services/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata/",
+    "mockUri": "/HiveMeasurement/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata",
     "metadataFilePath": "localService/ReceiveMeasurements.xsodata/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,

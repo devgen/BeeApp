@@ -1,5 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
-	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.home">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.home">
 	<App>
 		<pages>
 			<Page title="Title">
@@ -17,18 +16,24 @@
 							</f:customData>
 						</f:SimpleForm>
 					</VBox>
-					<TileContainer id="dashboardtiles" class="dashboard">
-						<StandardTile icon="sap-icon://official-service" type="Monitor" number="{number}" numberUnit="{numberUnit}" class="customtiles"
-							press="handelPressColonies" title="{title}" info="{info}" infoState="{infoState}"/>
+			
+					
+					<TileContainer id="dashboardtiles" class="dashboard" tiles="{/Beekeeper}">
 						<tiles>
-							<StandardTile title="Title" info="Info" icon="sap-icon://customer" activeIcon="sap-icon://customer" number="123" numberUnit="eur"
-								infoState="Success" id="__tile1" press="handelPressColonies"/>
+<!--						<StandardTile icon="sap-icon://official-service" type="Monitor" number="{number}" numberUnit="{numberUnit}" class="customtiles"
+							press="handelPressColonies" title="{title}" info="{info}" infoState="{infoState}"/>-->
+					
+							<StandardTile icon="sap-icon://official-service" activeIcon="sap-icon://official-service" number="4" numberUnit="Colnies" infoState="Success" id="__tile1" press="handelPressColonies" removable="false"/>
+								
 						</tiles>
 					</TileContainer>
 				</content>
+				<headerContent>
+					<core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="orange"/>
+				</headerContent>
 				<footer>
 					<Bar>
-						<contentRight></contentRight>
+						<contentRight/>
 					</Bar>
 				</footer>
 			</Page>

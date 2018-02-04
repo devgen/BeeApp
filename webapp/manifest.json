@@ -15,12 +15,11 @@
 		},
 		"dataSources": {
 			"ReceiveMeasurements.xsodata": {
-				"uri": "/gbi-student-011/HiveMeasurement/services/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata/",
+				"uri": "/HiveMeasurement/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/ReceiveMeasurements.xsodata/metadata.xml",
-					"annotations": []
+					"localUri": "localService/ReceiveMeasurements.xsodata/metadata.xml"
 				}
 			}
 		}
@@ -40,7 +39,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_belize"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -82,9 +84,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -97,21 +101,27 @@
 					"target": "notFound"
 				}
 			},
-			"routes": [{
-				"pattern": "",
-				"name": "appHome",
-				"target": "home"
-			}, {
-				"pattern": "Colony",
-				"name": "Colonies",
-				"target": "Colonies"
-			}, {
-				"name": "ColonyDetail",
-				"pattern": "Colony/{ID}",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["ColonyDetail"]
-			}],
+			"routes": [
+				{
+					"pattern": "",
+					"name": "appHome",
+					"target": "home"
+				},
+				{
+					"pattern": "Colony",
+					"name": "Colonies",
+					"target": "Colonies"
+				},
+				{
+					"name": "ColonyDetail",
+					"pattern": "Colony/{ID}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"ColonyDetail"
+					]
+				}
+			],
 			"targets": {
 				"home": {
 					"viewName": "home"

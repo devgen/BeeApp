@@ -51,6 +51,18 @@
                 <Property Name="COLONYID" Type="Edm.Int32" Nullable="false"/>
                 <Property Name="TEMP" Type="Edm.Decimal" Precision="5" Scale="2"/>
             </EntityType>
+            <EntityType Name="NotificationViewType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="WEIGHT" Type="Edm.Int32"/>
+                <Property Name="TIMESTAMP" Type="Edm.DateTime"/>
+                <Property Name="COLONYID" Type="Edm.Int32"/>
+                <Property Name="WEIGHT_COUNT" Type="Edm.Decimal" Precision="18" Scale="0"/>
+                <Property Name="WEIGHT_SUM" Type="Edm.Int32"/>
+                <Property Name="ALERT" Type="Edm.Int32"/>
+            </EntityType>
             <EntityType Name="ColonyType">
                 <Key>
                     <PropertyRef Name="ID"/>
@@ -60,6 +72,12 @@
                 <Property Name="LAT" Type="Edm.Double"/>
                 <Property Name="NAME" Type="Edm.String" MaxLength="255"/>
                 <Property Name="BEEKEEPERID" Type="Edm.Int32"/>
+                <NavigationProperty Name="ItsHumidityIn" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_HumidityInType" FromRole="ColonyPrincipal" ToRole="HumidityInDependent"/>
+                <NavigationProperty Name="ItsHumidityOut" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_HumidityOutType" FromRole="ColonyPrincipal" ToRole="HumidityOutDependent"/>
+                <NavigationProperty Name="ItsTemperatureIn" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_TemperatureInType" FromRole="ColonyPrincipal" ToRole="TemperatureInDependent"/>
+                <NavigationProperty Name="ItsTemperatureOut" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_TemperatureOutType" FromRole="ColonyPrincipal" ToRole="TemperatureOutDependent"/>
+                <NavigationProperty Name="ItsWeight" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_WeightType" FromRole="ColonyPrincipal" ToRole="WeightDependent"/>
+                <NavigationProperty Name="ItsNotification" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_NotificationType" FromRole="ColonyPrincipal" ToRole="NotificationViewDependent"/>
             </EntityType>
             <EntityType Name="BeekeeperType">
                 <Key>
@@ -69,6 +87,7 @@
                 <Property Name="NAME" Type="Edm.String" MaxLength="255"/>
                 <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
                 <Property Name="PASSWORD" Type="Edm.Binary"/>
+                <NavigationProperty Name="HisColonies" Relationship="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Beekeeper_ColonyType" FromRole="BeekeeperPrincipal" ToRole="ColonyDependent"/>
             </EntityType>
             <EntityType Name="ScoreType">
                 <Key>
@@ -151,12 +170,25 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
+            <Association Name="Colony_NotificationType">
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType" Role="ColonyPrincipal" Multiplicity="1"/>
+                <End Type="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.NotificationViewType" Role="NotificationViewDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ColonyPrincipal">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="NotificationViewDependent">
+                        <PropertyRef Name="COLONYID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="ReceiveMeasurements" m:IsDefaultEntityContainer="true">
                 <EntitySet Name="HumidityIn" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.HumidityInType"/>
                 <EntitySet Name="HumidityOut" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.HumidityOutType"/>
                 <EntitySet Name="Weight" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.WeightType"/>
                 <EntitySet Name="TemperatureIn" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.TemperatureInType"/>
                 <EntitySet Name="TemperatureOut" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.TemperatureOutType"/>
+                <EntitySet Name="NotificationView" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.NotificationViewType"/>
                 <EntitySet Name="Colony" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ColonyType"/>
                 <EntitySet Name="Beekeeper" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.BeekeeperType"/>
                 <EntitySet Name="Score" EntityType="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.ScoreType"/>
@@ -183,6 +215,10 @@
                 <AssociationSet Name="Colony_Weight" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_WeightType">
                     <End Role="ColonyPrincipal" EntitySet="Colony"/>
                     <End Role="WeightDependent" EntitySet="Weight"/>
+                </AssociationSet>
+                <AssociationSet Name="Colony_Notification" Association="gbi-student-011.HiveMeasurement.services.ReceiveMeasurements.Colony_NotificationType">
+                    <End Role="ColonyPrincipal" EntitySet="Colony"/>
+                    <End Role="NotificationViewDependent" EntitySet="NotificationView"/>
                 </AssociationSet>
             </EntityContainer>
         </Schema>
