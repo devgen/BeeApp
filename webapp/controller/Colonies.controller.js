@@ -28,7 +28,10 @@ sap.ui.define([
 			
 			onInit: function() {
 		
-			}
+			},
+			onOpenDialog : function () {
+			this.getOwnerComponent().openColonyCreationDeialog();
+		}
 			
 			
 

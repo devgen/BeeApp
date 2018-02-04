@@ -1,21 +1,39 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.home">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.home">
 	<App>
 		<pages>
 			<Page title="Title">
 				<content>
 			
+			<VBox class="sapUiSmallMargin" items="{/Beekeeper}">
+				<f:SimpleForm id="BeekeeperInfo" title="BeeKeeper">
+					<f:content>
+						<Label text="BeeKeeper"/>
+						<Text text="{NAME}" id="ID"/>
+						<Label text="Email"/>
+						<Text text="{EMAIL}" id="NAME"/>
+					</f:content>
+				<f:customData>
+				    <core:CustomData key="w5g.dt.editable" value="false" id="__data18"/>
+				</f:customData>
+				</f:SimpleForm>
+			</VBox>
+			
+			
 					<TileContainer id="dashboardtiles" class="dashboard">
-							<StandardTile icon="sap-icon://official-service"
-							type="Monitor" number="{number}"
-							numberUnit="{numberUnit}" 
-							class="customtiles" 
-							press="handelPressColonies" 
-							title="{title}" 
-							info="{info}"
-							infoState="{infoState}"/>
+							<StandardTile icon="sap-icon://official-service" type="Monitor" number="{number}" numberUnit="{numberUnit}" class="customtiles" press="handelPressColonies" title="{title}" info="{info}" infoState="{infoState}"/>
+						<tiles>
+						    <StandardTile title="Title" info="Info" icon="sap-icon://customer" activeIcon="sap-icon://customer" number="123" numberUnit="eur" infoState="Success" id="__tile1" press="handelPressColonies"/>
+						</tiles>
 						</TileContainer>
 			
 				</content>
+					<footer>
+  <Bar>
+    <contentRight>
+  
+    </contentRight>
+  </Bar>
+</footer>
 			</Page>
 		</pages>
 	</App>

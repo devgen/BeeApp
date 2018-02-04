@@ -60,6 +60,13 @@
 					</IconTabBar>
 
 				</content>
+					<footer>
+  <Bar>
+    <contentRight>
+
+    </contentRight>
+  </Bar>
+</footer>
 			</Page>
 		</pages>
 	</App>

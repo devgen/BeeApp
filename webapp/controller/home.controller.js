@@ -30,9 +30,13 @@ sap.ui.define([
 		 * (NOT before the first rendering! onInit() is used for that one!).
 		 * @memberOf BeeApp.view.home
 		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
+/*			onBeforeRendering: function() {
+			var  oView;
+			oView = this.getView();
+			oView.bindElement({
+				path : "Beekeeper(1)"
+			});
+			}*/
 
 		/**
 		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.

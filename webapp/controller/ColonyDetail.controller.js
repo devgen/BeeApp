@@ -27,7 +27,7 @@ sap.ui.define([
 			
 			var myPath = "/Colony("+ oArgs.ID + ")";
 			
-							oView.bindElement({
+			oView.bindElement({
 				path : myPath,
 				events : {
 					change: this._onBindingChange.bind(this),

@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"BeeApp/model/models"
-], function(UIComponent, Device, models) {
+	"BeeApp/model/models",
+	"BeeApp/controller/ColonyCreationDialog"
+], function(UIComponent, Device, models,ColonyCreationDialog) {
 	"use strict";
 
 	return UIComponent.extend("BeeApp.Component", {
@@ -25,6 +26,13 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			
+			
+				// set dialog
+			this.colonyCreationDialog = new ColonyCreationDialog(this.getRootControl());
+		},
+		 openColonyCreationDeialog : function () {
+			this.colonyCreationDialog.open();
 		}
 	});
 });
