@@ -10,11 +10,11 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf BeeApp.view.home
 		 */
-			onInit: function() {
-		
-			},
-			
-			handelPressColonies: function(evt) {
+		onInit: function() {
+
+		},
+
+		handelPressColonies: function(evt) {
 			//jQuery.sap.log.error("This should never have happened!");
 			//jQuery.sap.log.info("Pressed");
 			var oItem, oCtx;
@@ -22,21 +22,21 @@ sap.ui.define([
 			oCtx = oItem.getBindingContext();
 			//alert("Navigating to Details of " + evt.getSource().getBindingContext());
 			this.getRouter().navTo("Colonies");
-				
-			}
+
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
 		 * @memberOf BeeApp.view.home
 		 */
-/*			onBeforeRendering: function() {
-			var  oView;
-			oView = this.getView();
-			oView.bindElement({
-				path : "Beekeeper(1)"
-			});
-			}*/
+		/*			onBeforeRendering: function() {
+					var  oView;
+					oView = this.getView();
+					oView.bindElement({
+						path : "Beekeeper(1)"
+					});
+					}*/
 
 		/**
 		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.

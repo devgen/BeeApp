@@ -1,56 +1,254 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartchart="sap.ui.comp.smartchart" xmlns:sl="sap.ui.comp.navpopover" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" controllerName="BeeApp.controller.ColonyDetail">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartchart="sap.ui.comp.smartchart" xmlns:sl="sap.ui.comp.navpopover"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data"
+	controllerName="BeeApp.controller.ColonyDetail">
 	<App>
 		<pages>
 			<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-				<VBox class="sapUiSmallMargin">
-				<f:SimpleForm id="flightDetails" title="Flight Details">
-					<f:content>
-						<RatingIndicator id="RI_default" maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip"/>
-						<Label text="{i18n>ColonyID}"/>
-						<Input type="Text" width="100%" id="ID" value="{ID}" editable="false"/>
-						<Label text="{i18n>ColonyName}Colony name"/>
-						<Input type="Text" width="100%" id="NAME" value="{NAME}"/>
-						<Label text="Colony long"/>
-						<Input type="Text" width="100%" id="LONG" value="{LONG}"/>
-						<Label text="Colony lat"/>
-						<Input type="Text" width="100%" id="LAT" value="{LAT}"/>
-					</f:content>
-				</f:SimpleForm>
-			</VBox>
-					
+					<IconTabBar id="centralTabBar" expanded="{device>isNoPhone}" class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter text="Colonien">
+								<VBox class="sapUiSmallMargin">
+									<f:SimpleForm id="flightDetails" title="{i18n>ColonyInfoText}">
+										<f:content>
+											<RatingIndicator id="RI_default" maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip"/>
+											<Label text="{i18n>ColonyID}"/>
+											<Input type="Text" width="100%" id="ID" value="{ID}" editable="false"/>
+											<Label text="{i18n>ColonyName}Colony name"/>
+											<Input type="Text" width="100%" id="NAME" value="{NAME}"/>
+											<Label text="Colony long"/>
+											<Input type="Text" width="100%" id="LONG" value="{LONG}"/>
+											<Label text="Colony lat"/>
+											<Input type="Text" width="100%" id="LAT" value="{LAT}"/>
+										</f:content>
+									</f:SimpleForm>
+								</VBox>
+								<VBox fitContainer="false"></VBox>
+							</IconTabFilter>
+							
+							
+							
+						<IconTabFilter text="{i18n>MenuWeight}">
+								<Text text="{i18n>MenuWeight}"/>
+								<Panel expandable="true" expanded="true" width="100%">
+									<headerToolbar>
+										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
+										<Toolbar height="3rem">
+											<Title text="Text"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</headerToolbar>
+									<html:p/>
+									<content>
+										<Label text="Select a date range" labelFor="hmdout" class="sapUiSmallMargin"/>
+										<DateRangeSelection id="weight" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
+										<html:p/>
+										<!-- the vizFrame is a control to handle a variety of different
+                	    charts. The properties of the VizFrame itself only affect the 
+                	    the frame of the chart. The property vizProperties is a json
+                	    object which holds the configuration for the actual chart -->
 
-	<VBox fitContainer="true">
-		</VBox>
-		
-		
-		
-		
-		
-		
-		</content>
-				
-				
-				
-				
+
+
+										<viz:VizFrame id="WEIGHTChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
+											<viz:dataset>
+												<viz.data:FlattenedDataset id="ItsWeight" data="{path: '/Colony(1)/ItsWeight'}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Weight" value="{WEIGHT}"/>
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<!-- the feed items are required to define the mapping between the odata
+                		properties (values) and the axis (uid) -->
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Weight"/>
+												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
+											</viz:feeds>
+										</viz:VizFrame>
+
+
+
+
+									</content>
+								</Panel>
+							</IconTabFilter>	
+							
+							
+							
+							
+							<IconTabFilter text="{i18n>TempInTitle}">
+								<Text text="{i18n>TitleTempIn}"/>
+								<Panel expandable="true" expanded="true" width="100%">
+									<headerToolbar>
+										<!--  in this case, we use a simple title in the 
+    			toolbar, but you could add images or buttons
+    			as well -->
+										<Toolbar height="3rem">
+											<Title text="Text"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</headerToolbar>
+									<html:p/>
+									<content>
+										<Label text="Select a date range" labelFor="drs" class="sapUiSmallMargin"/>
+										<DateRangeSelection id="drs" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
+										<html:p/>
+										<!-- the vizFrame is a control to handle a variety of different
+                	    charts. The properties of the VizFrame itself only affect the 
+                	    the frame of the chart. The property vizProperties is a json
+                	    object which holds the configuration for the actual chart -->
+										<viz:VizFrame id="weightChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
+											<viz:dataset>
+												<viz.data:FlattenedDataset id="flattenedDataWeight" data="{path: '/Colony(1)/ItsTemperatureIn'}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Weight" value="{TEMP}"/>
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<!-- the feed items are required to define the mapping between the odata
+                		properties (values) and the axis (uid) -->
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Weight"/>
+												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
+											</viz:feeds>
+										</viz:VizFrame>
+									</content>
+								</Panel>
+							</IconTabFilter>
+	
+	
+	
+							
+						<IconTabFilter text="{i18n>TempOutTitle}">
+								<Text text="{i18n>TempOutTitle}"/>
+								<Panel expandable="true" expanded="true" width="100%">
+									<headerToolbar>
+										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
+										<Toolbar height="3rem">
+											<Title text="Text"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</headerToolbar>
+									<html:p/>
+									<content>
+										<Label text="Select a date range" labelFor="tmpout" class="sapUiSmallMargin"/>
+										<DateRangeSelection id="tmpout" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
+										<html:p/>
+										<!-- the vizFrame is a control to handle a variety of different
+                	    charts. The properties of the VizFrame itself only affect the 
+                	    the frame of the chart. The property vizProperties is a json
+                	    object which holds the configuration for the actual chart -->
+
+
+
+										<viz:VizFrame id="tempOutChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Weight' } }">
+											<viz:dataset>
+												<viz.data:FlattenedDataset id="ItsTemperatureOut" data="{path: '/Colony(1)/ItsTemperatureOut'}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Weight" value="{TEMP}"/>
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<!-- the feed items are required to define the mapping between the odata
+                		properties (values) and the axis (uid) -->
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Weight"/>
+												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
+											</viz:feeds>
+										</viz:VizFrame>
+
+
+
+
+									</content>
+								</Panel>
+							</IconTabFilter>	
+							
+							
+							
+							
+							
+							
+									<IconTabFilter text="{i18n>HumidyTitleout}">
+								<Text text="{i18n>HumidyTitleout}"/>
+								<Panel expandable="true" expanded="true" width="100%">
+									<headerToolbar>
+										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
+										<Toolbar height="3rem">
+											<Title text="Text"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</headerToolbar>
+									<html:p/>
+									<content>
+										<Label text="Select a date range" labelFor="hmdout" class="sapUiSmallMargin"/>
+										<DateRangeSelection id="hmdout" displayFormat="dd.MM.yyyy" width="220px" change="handleChange"/>
+										<html:p/>
+										<!-- the vizFrame is a control to handle a variety of different
+                	    charts. The properties of the VizFrame itself only affect the 
+                	    the frame of the chart. The property vizProperties is a json
+                	    object which holds the configuration for the actual chart -->
+
+
+
+										<viz:VizFrame id="hdtOutChart" width="100%" height="400px" vizType="line" uiConfig="{ applicationSet:'fiori' }"
+											vizProperties="{ title: { alignment :'left', visible : true, text : 'Humidity' } }">
+											<viz:dataset>
+												<viz.data:FlattenedDataset id="ItsHumidityOut" data="{path: '/Colony(1)/ItsHumidityOut'}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Timestamp" value="{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Humidity" value="{HUMIDITY}"/>
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<!-- the feed items are required to define the mapping between the odata
+                		properties (values) and the axis (uid) -->
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Humidity"/>
+												<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Timestamp"/>
+											</viz:feeds>
+										</viz:VizFrame>
+
+
+
+
+									</content>
+								</Panel>
+							</IconTabFilter>					
+	
+							
+							
+							
+						</items>
+					</IconTabBar>
+				</content>
 				<headerContent>
-				    <core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="red"/>
+					<core:Icon src="sap-icon://warning2" size="2em" id="icon_alarm" backgroundColor="red"/>
 				</headerContent>
-				
-									<footer>
-  <Bar>
-    <contentRight>
-  
-    <Button text="Accept" width="100px" id="__button1" type="Accept" press="onPressAccept"/>
-  
-    <Button text="Cancel" width="100px" id="__button0" type="Reject" press="onPressCancel"/>
-  
-    </contentRight>
-  </Bar>
-</footer>
-				
-				</Page></pages>
-				
-				
-				
-				</App></mvc:View>
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button text="Accept" width="100px" id="__button1" type="Accept" press="onPressAccept"/>
+							<Button text="Cancel" width="100px" id="__button0" type="Reject" press="onPressCancel"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

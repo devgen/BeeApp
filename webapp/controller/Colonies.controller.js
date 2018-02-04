@@ -10,9 +10,8 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf BeeApp.view.Colonies
 		 */
-		 
-		 
-		 	handelLineItemPress: function(evt) {
+
+		handelLineItemPress: function(evt) {
 			//jQuery.sap.log.error("This should never have happened!");
 			//jQuery.sap.log.info("Pressed");
 			var oItem, oCtx;
@@ -20,21 +19,18 @@ sap.ui.define([
 			oCtx = oItem.getBindingContext();
 			//alert("Navigating to Details of " + evt.getSource().getBindingContext());
 			this.getRouter().navTo("ColonyDetail", {
-				ID : oCtx.getProperty('ID')
-				//Connid : oCtx.getProperty("Connid")
+				ID: oCtx.getProperty('ID')
+					//Connid : oCtx.getProperty("Connid")
 			});
-		 				
-		 	},
-			
-			onInit: function() {
-		
-			},
-			onOpenDialog : function () {
+
+		},
+
+		onInit: function() {
+
+		},
+		onOpenDialog: function() {
 			this.getOwnerComponent().openColonyCreationDeialog();
 		}
-			
-			
-
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

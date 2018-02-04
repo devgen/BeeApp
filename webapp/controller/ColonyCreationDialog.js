@@ -1,29 +1,28 @@
 sap.ui.define([
 	"sap/ui/base/Object"
-], function (UI5Object) {
+], function(UI5Object) {
 	"use strict";
 
 	return UI5Object.extend("BeeApp.controller.ColonyCreationDialog", {
 
-		constructor : function (oView) {
+		constructor: function(oView) {
 			this._oView = oView;
 		},
 
-		open : function () {
+		open: function() {
 			var oView = this._oView;
 			var oDialog = oView.byId("airlineCreation");
 
 			// create dialog lazily
 			if (!oDialog) {
 				var oFragmentController = {
-					onCloseDialog : function () {
+					onCloseDialog: function() {
 						oDialog.close();
 					},
-					onAcceptDealog : function(){
+					onAcceptDealog: function() {
 						//var oPersonInfo = sap.ui.getCore().byId("TODO").getValue();
 						//hier Odata create
-						
-			
+
 					}
 				};
 				// create dialog via fragment factory

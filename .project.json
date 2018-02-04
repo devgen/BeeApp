@@ -51,8 +51,8 @@
     "blockPushLevel": "Error"
   },
   "mockpreview": {
-    "mockUri": "/gbi-student-011/HiveMeasurement/services/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata",
-    "metadataFilePath": "",
+    "mockUri": "/gbi-student-011/HiveMeasurement/services/gbi-student-011/HiveMeasurement/services/ReceiveMeasurements.xsodata/",
+    "metadataFilePath": "localService/ReceiveMeasurements.xsodata/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""

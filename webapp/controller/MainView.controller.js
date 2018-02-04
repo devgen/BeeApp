@@ -3,12 +3,11 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	
 	return Controller.extend("BeeApp.controller.MainView", {
 		init: function() {
 
 		},
-		onOpenDialog : function () {
+		onOpenDialog: function() {
 			this.getOwnerComponent().openAirlineCreationDeialog();
 		}
 

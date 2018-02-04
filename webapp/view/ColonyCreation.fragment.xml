@@ -1,47 +1,18 @@
-<core:FragmentDefinition 
-xmlns="sap.m" 
-xmlns:core="sap.ui.core"
-xmlns:l="sap.ui.layout"
-xmlns:f="sap.ui.layout.form" > 
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
 	<Dialog id="colonyCreation" title="Create new colony">
 		<content>
-	<f:SimpleForm id="colonyDetails" title="Colony details">
-					<f:content>
-						<Label text="{i18n>Carrid}"/>
-						<Input type="Text" width="100%" id="Carrid"/>
-						<Label text="{i18n>Connid}"/>
-						<Input type="Text" width="100%" id="Connid"/>
-						<Label text="{i18n>Carrid}"/>
-						<Input type="Text" width="100%" id="To"/>
-						<Label text="{i18n>Fldate}"/>
-						<Input type="Date" width="100%" id="Fldate"/>
-						<Label text="{i18n>Price}"/>
-						<Input type="Number" width="100%" id="Price"/>
-						<Label text="{i18n>Currency}"/>
-						<Input width="100%" id="Currency"/>
-						<Label text="{i18n>Planetype}"/>
-						<Input width="100%" id="Planetype"/>
-						<Label text="{i18n>Seatsmax}"/>
-						<Input type="Number" width="100%" id="Seatsmax"/>
-						<Label text="{i18n>Seatsocc}"/>
-						<Input type="Number" width="100%" id="Seatsocc"/>
-						<Label text="{i18n>Paymentsum}"/>
-						<Input type="Number" width="100%" id="Paymentsum"/>
-						<Label text="{i18n>SeatsmaxB}"/>
-						<Input type="Number" width="100%" id="SeatsmaxB"/>
-						<Label text="{i18n>SeatsoccB}"/>
-						<Input type="Number" width="100%" id="SeatsoccB"/>
-						<Label text="{i18n>SeatsmaxF}"/>
-						<Input type="Number" width="100%" id="SeatsmaxF"/>
-						<Label text="{i18n>SeatsoccF}"/>
-						<Input type="Number" width="100%" id="SeatsoccF"/>
-					</f:content>
-				</f:SimpleForm>
-	</content>
-
-<Button text = "SAVE" press = "onAcceptDealog" type = "Accept"/> 
-<Button text = "CLOSE" press = "onCloseDialog" type = "Reject"/> 
-
-	
+			<f:SimpleForm id="colonyDetails" title="Colony details">
+				<f:content>
+					<Label text="{i18n>Carrid}"/>
+					<Input type="Text" width="100%" id="Carrid"/>
+					<Label text="{i18n>Connid}"/>
+					<Input type="Text" width="100%" id="Connid"/>
+					<Label text="{i18n>Carrid}"/>
+					<Input type="Text" width="100%" id="To"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<Button text="SAVE" press="onAcceptDealog" type="Accept"/>
+		<Button text="CLOSE" press="onCloseDialog" type="Reject"/>
 	</Dialog>
 </core:FragmentDefinition>
