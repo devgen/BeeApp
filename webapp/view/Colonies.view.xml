@@ -2,7 +2,7 @@
 	controllerName="BeeApp.controller.Colonies">
 	<App>
 		<pages>
-			<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
+			<Page title="{i18n>appTitle}" showNavButton="true" navButtonPress="onNavBack">
 				<content>
 					<IconTabBar id="centralTabBar" expanded="{device>isNoPhone}" class="sapUiResponsiveContentPadding">
 						<items>
@@ -11,38 +11,34 @@
 									<headerToolbar>
 										<Toolbar>
 											<Button icon="sap-icon://write-new-document" press="onOpenDialog"/>
-											<Title text="Title"/>
+											<Title text=""/>
 											<ToolbarSpacer/>
 											<SearchField width="50%" search="onFilterInvoices" selectOnFocus="false"/>
 										</Toolbar>
 									</headerToolbar>
 									<columns>
 										<Column>
-											<Text text="Text"/>
+											<Text text="{i18n>{i18n>CreateNewColonyLabel}ColonyID}"/>
 										</Column>
 										<Column>
-											<Text text="Text"/>
+											<Text text="{i18n>ColonyName}"/>
 										</Column>
 										<Column>
-											<Text text="Text"/>
+											<Text text="{i18n>ColonyLonTitle}"/>
 										</Column>
 										<Column>
-											<Text text="Text"/>
+											<Text text="{i18n>ColonyLatTitle}"/>
 										</Column>
-										<Column>
-											<Text text="Text"/>
-										</Column>
-										<Column>
-											<Text text="Text"/>
-										</Column>
+					
 									</columns>
 									<items>
 										<ColumnListItem type="Navigation" press="handelLineItemPress">
 											<cells>
 												<Text text="{ID}"/>
-												<Text text="{LONG}"/>
+												
 												<Text text="{NAME}"/>
-												<Text text="{BEEKEEPERID}"/>
+												<Text text="{LONG}"/>
+												<Text text="{LAT}"/>
 											</cells>
 										</ColumnListItem>
 									</items>
@@ -51,9 +47,9 @@
 									</customData>
 								</Table>
 							</IconTabFilter>
-							<IconTabFilter text="Colonie">
+						<!--	<IconTabFilter text="Colonie">
 								<Text text="Here you will see departing flights soon!"/>
-							</IconTabFilter>
+							</IconTabFilter>-->
 						</items>
 					</IconTabBar>
 				</content>

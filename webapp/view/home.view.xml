@@ -1,7 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="BeeApp.controller.home">
 	<App>
 		<pages>
-			<Page title="Title">
+			<Page title="{i18n>appTitle}">
 				<content>
 					<VBox class="sapUiSmallMargin" items="{/Beekeeper}">
 						<f:SimpleForm id="BeekeeperInfo" title="BeeKeeper">
