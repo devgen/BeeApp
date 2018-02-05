@@ -6,7 +6,7 @@
 				<content>
 					<IconTabBar id="centralTabBar" expanded="{device>isNoPhone}" class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter text="Colonien">
+							<IconTabFilter text="Colonies">
 								<Table id="arrivingFlights" items="{/Colony}" growing="true" growingScrollToLoad="true">
 									<headerToolbar>
 										<Toolbar>

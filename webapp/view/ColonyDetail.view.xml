@@ -8,7 +8,7 @@
 				<content>
 					<IconTabBar id="centralTabBar" expanded="{device>isNoPhone}" class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter text="Colonien">
+							<IconTabFilter text="Colonies">
 								<VBox class="sapUiSmallMargin">
 									<f:SimpleForm id="flightDetails" title="{i18n>ColonyInfoText}">
 										<f:content>
