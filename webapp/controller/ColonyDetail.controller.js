@@ -38,7 +38,14 @@ sap.ui.define([
 			var oDataset = new sap.viz.ui5.data.FlattenedDataset({
 				dimensions : [ {
 					name : 'Timestamp',
-					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+					value : {
+						parts: ['TIMESTAMP'], 
+						formatter : function(timestamp) {
+							var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern:"YYYY/MM/DD HH:mm:ss"});
+							var date = new Date(timestamp);
+				            return dateFormat.format(date);
+						}
+					}
 				} ],
 				measures : [{
 					name : "Weight",
@@ -55,7 +62,14 @@ sap.ui.define([
 			oDataset = new sap.viz.ui5.data.FlattenedDataset({
 				dimensions : [ {
 					name : 'Timestamp',
-					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+					value : {
+						parts: ['TIMESTAMP'], 
+						formatter : function(timestamp) {
+							var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern:"YYYY/MM/DD HH:mm:ss"});
+							var date = new Date(timestamp);
+				            return dateFormat.format(date);
+						}
+					}
 				} ],
 				measures : [{
 					name : "Temperature",
@@ -72,7 +86,14 @@ sap.ui.define([
 			oDataset = new sap.viz.ui5.data.FlattenedDataset({
 				dimensions : [ {
 					name : 'Timestamp',
-					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+					value : {
+						parts: ['TIMESTAMP'], 
+						formatter : function(timestamp) {
+							var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern:"YYYY/MM/DD HH:mm:ss"});
+							var date = new Date(timestamp);
+				            return dateFormat.format(date);
+						}
+					}
 				} ],
 				measures : [{
 					name : "Temperature",
@@ -89,7 +110,14 @@ sap.ui.define([
 			oDataset = new sap.viz.ui5.data.FlattenedDataset({
 				dimensions : [ {
 					name : 'Timestamp',
-					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+					value : {
+						parts: ['TIMESTAMP'], 
+						formatter : function(timestamp) {
+							var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern:"YYYY/MM/DD HH:mm:ss"});
+							var date = new Date(timestamp);
+				            return dateFormat.format(date);
+						}
+					}
 				} ],
 				measures : [{
 					name : "Humidity",
@@ -106,7 +134,14 @@ sap.ui.define([
 			oDataset = new sap.viz.ui5.data.FlattenedDataset({
 				dimensions : [ {
 					name : 'Timestamp',
-					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+					value : {
+						parts: ['TIMESTAMP'], 
+						formatter : function(timestamp) {
+							var dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern:"YYYY/MM/DD HH:mm:ss"});
+							var date = new Date(timestamp);
+				            return dateFormat.format(date);
+						}
+					}
 				} ],
 				measures : [{
 					name : "Humidity",
