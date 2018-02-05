@@ -75,7 +75,7 @@
     			toolbar, but you could add images or buttons
     			as well -->
 										<Toolbar height="3rem">
-											<Title text="{i18n>MenuWeight}"/>
+											<Title text="{i18n>VisualizationTitle}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
@@ -116,7 +116,7 @@
 									<headerToolbar>
 										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
 										<Toolbar height="3rem">
-											<Title text="{i18n>MenuWeight}"/>
+											<Title text="{i18n>VisualizationTitle}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
@@ -157,7 +157,7 @@
 									<headerToolbar>
 										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
 										<Toolbar height="3rem">
-											<Title text="{i18n>MenuWeight}"/>
+											<Title text="{i18n>VisualizationTitle}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>
@@ -198,7 +198,7 @@
 									<headerToolbar>
 										<!--  in this case, we use a simple title in the toolbar, but you could add images or buttonsas well -->
 										<Toolbar height="3rem">
-											<Title text="{i18n>MenuWeight}"/>
+											<Title text="{i18n>VisualizationTitle}"/>
 											<ToolbarSpacer/>
 										</Toolbar>
 									</headerToolbar>

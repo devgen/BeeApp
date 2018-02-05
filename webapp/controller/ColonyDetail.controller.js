@@ -18,6 +18,7 @@ sap.ui.define([
 			oRouter.getRoute("ColonyDetail").attachPatternMatched(this._onObjectMatched, this);
 
 		},
+		
 		_onObjectMatched: function(oEvent) {
 
 			var oArgs, oView;
@@ -26,6 +27,96 @@ sap.ui.define([
 			oView = this.getView();
 
 			var myPath = "/Colony(" + oArgs.ID + ")";
+			var myPathWeight = "/Colony(" + oArgs.ID + ")/ItsWeight";
+			var myPathTemperatureIn = "/Colony(" + oArgs.ID + ")/ItsTemperatureIn";
+			var myPathTemperatureOut = "/Colony(" + oArgs.ID + ")/ItsTemperatureOut";
+			var myPathHumidityIn = "/Colony(" + oArgs.ID + ")/ItsHumidityIn";
+			var myPathHumidityOut = "/Colony(" + oArgs.ID + ")/ItsHumidityOut";
+			
+			var oVizFrame = oView.byId("WEIGHTChart");
+			oVizFrame.destroyDataset();
+			var oDataset = new sap.viz.ui5.data.FlattenedDataset({
+				dimensions : [ {
+					name : 'Timestamp',
+					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+				} ],
+				measures : [{
+					name : "Weight",
+					value : "{WEIGHT}"
+				}],
+				data : {
+					path : myPathWeight
+				}
+			});
+			oVizFrame.setDataset(oDataset);
+			
+			oVizFrame = oView.byId("weightChart");
+			oVizFrame.destroyDataset();
+			oDataset = new sap.viz.ui5.data.FlattenedDataset({
+				dimensions : [ {
+					name : 'Timestamp',
+					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+				} ],
+				measures : [{
+					name : "Temperature",
+					value : "{TEMP}"
+				}],
+				data : {
+					path : myPathTemperatureIn
+				}
+			});
+			oVizFrame.setDataset(oDataset);
+			
+			oVizFrame = oView.byId("tempOutChart");
+			oVizFrame.destroyDataset();
+			oDataset = new sap.viz.ui5.data.FlattenedDataset({
+				dimensions : [ {
+					name : 'Timestamp',
+					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+				} ],
+				measures : [{
+					name : "Temperature",
+					value : "{TEMP}"
+				}],
+				data : {
+					path : myPathTemperatureOut
+				}
+			});
+			oVizFrame.setDataset(oDataset);
+			
+			oVizFrame = oView.byId("hdtOutChart");
+			oVizFrame.destroyDataset();
+			oDataset = new sap.viz.ui5.data.FlattenedDataset({
+				dimensions : [ {
+					name : 'Timestamp',
+					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+				} ],
+				measures : [{
+					name : "Humidity",
+					value : "{HUMIDITY}"
+				}],
+				data : {
+					path : myPathHumidityOut
+				}
+			});
+			oVizFrame.setDataset(oDataset);
+			
+			oVizFrame = oView.byId("hdtInChart");
+			oVizFrame.destroyDataset();
+			oDataset = new sap.viz.ui5.data.FlattenedDataset({
+				dimensions : [ {
+					name : 'Timestamp',
+					value : "{parts: ['TIMESTAMP'], formatter : 'Formatter.formatter'}"
+				} ],
+				measures : [{
+					name : "Humidity",
+					value : "{HUMIDITY}"
+				}],
+				data : {
+					path : myPathHumidityIn
+				}
+			});
+			oVizFrame.setDataset(oDataset);
 
 			oView.bindElement({
 				path: myPath,
